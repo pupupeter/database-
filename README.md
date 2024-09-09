@@ -5,9 +5,11 @@ for the course
 
 https://github.com/pupupeter/database-/blob/main/databaseuse.ipynb
 
-you have to establish a file that flask can be executed
+you have to establish with a file that flask can be executed
+e.g:https://github.com/pupupeter/database-/tree/main/templates 
+inside, there is a html code that you should  establish with. you may use chatgpt to help you get the html code
 # flask environment example
-https://github.com/pupupeter/database-/blob/main/123.ipynb
+https://github.com/pupupeter/database-/blob/main/123.ipynb 
 
 #Mysql use
 1. search Mysql
