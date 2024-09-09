@@ -4,6 +4,8 @@ for the course
 2024-09-09 flask and Mysql use
 
 https://github.com/pupupeter/database-/blob/main/databaseuse.ipynb
+
+you have to establish a file that flask can be executed
 # flask environment example
 https://github.com/pupupeter/database-/blob/main/123.ipynb
 
