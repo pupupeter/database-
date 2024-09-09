@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actor List</title>
+</head>
+<body>
+    <h1>Actor List</h1>
+    <table border="1">
+        <tr>
+            <th>Actor ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Last Update</th>
+        </tr>
+        {% for actor in configs %}
+        <tr>
+            <td>{{ actor.actor_id }}</td>
+            <td>{{ actor.first_name }}</td>
+            <td>{{ actor.last_name }}</td>
+            <td>{{ actor.last_update }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
