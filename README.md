@@ -24,3 +24,5 @@ find sakila and click 2times, and click the data that you want(e.g:![image](http
 6.click this ![image](https://github.com/user-attachments/assets/a7fdfb97-8506-4f17-addd-3d350618a605)
 7. the result![image](https://github.com/user-attachments/assets/5be02687-2ad7-497b-a2a5-3fe654721530)
 8. choose the flask or other to conbine with MySql
+
+# 0916 set up the table of sql
