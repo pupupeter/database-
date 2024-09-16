@@ -26,3 +26,16 @@ find sakila and click 2times, and click the data that you want(e.g:![image](http
 8. choose the flask or other to conbine with MySql
 
 # 0916 set up the table of sql
+![image](https://github.com/user-attachments/assets/e878af84-e746-49a5-b960-2f79a62399ea)
+e.g.  address item
+![image](https://github.com/user-attachments/assets/a25a6a84-176b-4837-b96b-dd3ae17c4b71)
+check the item 
+
+task: ![image](https://github.com/user-attachments/assets/60a6f57a-17ef-4033-acb2-96a044545f84)
+add a new data in the table
+
+solution:by using flask+mysql code
+
+
+
+
