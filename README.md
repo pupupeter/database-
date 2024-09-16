@@ -37,5 +37,16 @@ add a new data in the table
 solution:by using flask+mysql code
 https://github.com/pupupeter/database-/blob/main/20240916databasepratice.ipynb
 
+after executing it, you would see this ,and you can input what you want 
+![image](https://github.com/user-attachments/assets/f7652939-8290-47a9-b2bf-71e1caf31295)
+and you would see the new data in the html 
+![image](https://github.com/user-attachments/assets/13f3021d-daef-442a-8573-4dd2b5570b33)
+
+if you find the record in sql 
+![image](https://github.com/user-attachments/assets/50aa3b7a-6192-4e95-8c8e-cbf93d90f694)
+you could see this,too 
+
+
+
 
 
