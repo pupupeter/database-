@@ -46,6 +46,26 @@ if you find the record in sql
 ![image](https://github.com/user-attachments/assets/50aa3b7a-6192-4e95-8c8e-cbf93d90f694)
 you could see this,too 
 
+download at you desktop
+
+![image](https://github.com/user-attachments/assets/8367da37-a2c8-4587-814c-3abaeb5baa01)
+![image](https://github.com/user-attachments/assets/4f674f41-f534-46bd-b028-b2e71773331a)
+
+choose export data
+
+![image](https://github.com/user-attachments/assets/431ffb13-affe-47d3-b6d1-778cd5eea967)
+
+1.choose the schema you want
+2.choose your schema objects 
+3.all the item of objects to export should be clicked
+4.![image](https://github.com/user-attachments/assets/027a17f7-5c54-4b33-8f2c-ac64b2edd7f3)
+choose the folder you want to store
+
+![image](https://github.com/user-attachments/assets/3d90d94a-1345-4c17-986a-3a8398865bc8)
+after that, you can find the file you successfully set up 
+![image](https://github.com/user-attachments/assets/913cd971-556e-41a6-8949-c53a9606c7c9)
+done 
+
 
 
 
