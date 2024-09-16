@@ -35,7 +35,7 @@ task: ![image](https://github.com/user-attachments/assets/60a6f57a-17ef-4033-acb
 add a new data in the table
 
 solution:by using flask+mysql code
-
+https://github.com/pupupeter/database-/blob/main/20240916databasepratice.ipynb
 
 
 
