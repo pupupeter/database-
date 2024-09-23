@@ -89,7 +89,9 @@ after that, you can find the file you successfully set up
 ![image](https://github.com/user-attachments/assets/913cd971-556e-41a6-8949-c53a9606c7c9)
 done 
 
-#0923 add and read new data
+# 0923 add and read new data
+code: https://github.com/pupupeter/database-/blob/main/0923practice.ipynb
+html:
 
 
 
