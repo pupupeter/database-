@@ -91,7 +91,7 @@ done
 
 # 0923 add and read new data
 code: https://github.com/pupupeter/database-/blob/main/0923practice.ipynb
-html:
+html: https://github.com/pupupeter/database-/blob/main/index1.html
 
 
 
