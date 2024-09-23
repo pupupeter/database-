@@ -93,5 +93,19 @@ done
 code: https://github.com/pupupeter/database-/blob/main/0923practice.ipynb
 html: https://github.com/pupupeter/database-/blob/main/index1.html
 
+change: 
+1.The application uses session to track the last_seen_timestamp. This allows the system to remember when the user last viewed the data and only display records that were added after that time.
+2.The query only selects addresses added after the last_seen_timestamp, and the results are sorted in descending order based on the last_update timestamp.
+  
+  the query:
+  ***SELECT address, address2, district, city_id, postal_code, phone, last_update
+FROM address
+WHERE last_update > %s
+ORDER BY last_update DESC
+***
 
+3. A secret_key is set, which is required for enabling session functionality and helps prevent Cross-Site Request Forgery (CSRF) attacks.
 
+4. When inserting records, the last_update field is set to the current time, and it is also retrieved during queries to track the most recent updates.
+
+if you want to check  thoroughly,  directly click the  link  of the code and html at 0923
