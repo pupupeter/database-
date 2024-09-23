@@ -95,6 +95,8 @@ html: https://github.com/pupupeter/database-/blob/main/index1.html
 
 change: 
 1.The application uses session to track the last_seen_timestamp. This allows the system to remember when the user last viewed the data and only display records that were added after that time.
+
+
 2.The query only selects addresses added after the last_seen_timestamp, and the results are sorted in descending order based on the last_update timestamp.
   
   the query:
