@@ -98,10 +98,13 @@ change:
 2.The query only selects addresses added after the last_seen_timestamp, and the results are sorted in descending order based on the last_update timestamp.
   
   the query:
-  ***SELECT address, address2, district, city_id, postal_code, phone, last_update
+  ***
+  SELECT address, address2, district, city_id, postal_code, phone, last_update
 FROM address
 WHERE last_update > %s
 ORDER BY last_update DESC
+
+
 ***
 
 3. A secret_key is set, which is required for enabling session functionality and helps prevent Cross-Site Request Forgery (CSRF) attacks.
