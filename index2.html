@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newly Added Addresses</title>
+</head>
+<body>
+    <h1>Newly Added Addresses</h1>
+
+    <!-- Form to add new post -->
+    <form method="POST">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br>
+
+        <label for="address2">Address2:</label>
+        <input type="text" id="address2" name="address2"><br>
+
+        <label for="district">District:</label>
+        <input type="text" id="district" name="district" required><br>
+
+        <label for="city_id">City ID:</label>
+        <input type="text" id="city_id" name="city_id" required><br>
+
+        <label for="postal_code">Postal Code:</label>
+        <input type="text" id="postal_code" name="postal_code" required><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required><br>
+
+        <label for="location">Location (optional):</label>
+        <input type="text" id="location" name="location"><br>
+
+        <button type="submit">Add Address</button>
+    </form>
+
+    <h2>Recently Added Entries</h2>
+    <table border="1">
+        <tr>
+            <th>Address</th>
+            <th>Address2</th>
+            <th>District</th>
+            <th>City ID</th>
+            <th>Postal Code</th>
+            <th>Phone</th>
+            <th>Last Update</th>
+            <th>Actions</th>
+        </tr>
+        {% for address in addresses %}
+        <tr>
+            <td>{{ address[1] }}</td>
+            <td>{{ address[2] }}</td>
+            <td>{{ address[3] }}</td>
+            <td>{{ address[4] }}</td>
+            <td>{{ address[5] }}</td>
+            <td>{{ address[6] }}</td>
+            <td>{{ address[7] }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('delete_bp.delete_address', address_id=address[0]) }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
