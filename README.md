@@ -114,3 +114,7 @@ ORDER BY last_update DESC
 4. When inserting records, the last_update field is set to the current time, and it is also retrieved during queries to track the most recent updates.
 
 if you want to check  thoroughly,  directly click the  link  of the code and html at 0923
+
+
+# 0930 delete the data and the create new data
+
