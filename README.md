@@ -119,5 +119,5 @@ if you want to check  thoroughly,  directly click the  link  of the code and htm
 # 0930 delete the data and the create new data
 
 html: https://github.com/pupupeter/database-/blob/main/index2.html
-code:
+code:https://github.com/pupupeter/database-/blob/main/delete%2Bread.ipynb
 
