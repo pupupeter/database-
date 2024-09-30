@@ -121,3 +121,8 @@ if you want to check  thoroughly,  directly click the  link  of the code and htm
 html: https://github.com/pupupeter/database-/blob/main/index2.html
 code:https://github.com/pupupeter/database-/blob/main/delete%2Bread.ipynb
 
+* What I have changed:
+  1.i add a delete button to help me delete unnecessary data in order to choose what i need
+  2.i add a bluerint -->delete_bp = Blueprint('delete_bp', __name__) , because last week i did not use the code, so in order to use properly, i add this.
+  3. maybe i didn,t enroll the blueprint.consequently i set  app.register_blueprint(delete_bp) up at the same time
+  4. i combine with delete and create so as to make my functions complete.
