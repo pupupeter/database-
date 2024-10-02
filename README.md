@@ -131,3 +131,7 @@ code:https://github.com/pupupeter/database-/blob/main/delete%2Bread.ipynb
 
 
   4. i combine with delete and create so as to make my functions complete.
+
+# 0930/1002 make the html beautiful
+
+
