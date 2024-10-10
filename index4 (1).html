@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地址管理系统</title>
+    <style>
+        /* 字體樣式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1, h2 {
+            font-family: 'Verdana', sans-serif;
+            color: #333399;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        /* 表格樣式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #ffffff;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* 調整表格行距和字型大小 */
+        td {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* 表單樣式 */
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px; /* 增加 padding */
+            margin: 10px 0; /* 增加 margin，讓欄位之間有更多空間 */
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            grid-column: span 2; /* 讓按鈕佔據兩列 */
+            background-color: #333399;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6666ff;
+        }
+
+        /* 表單容器樣式 */
+        form {
+            display: grid; /* 使用 grid 來排列表單欄位 */
+            grid-template-columns: repeat(2, 1fr); /* 兩列佈局 */
+            gap: 20px; /* 欄位之間的間距 */
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>地址管理系统</h1>
+
+    <form method="POST" action="{{ url_for('index') }}">
+        <label for="address">地址:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="address2">地址2:</label>
+        <input type="text" id="address2" name="address2">
+
+        <label for="district">区:</label>
+        <input type="text" id="district" name="district" required>
+
+        <label for="city_id">城市ID:</label>
+        <input type="number" id="city_id" name="city_id" required>
+
+        <label for="postal_code">邮政编码:</label>
+        <input type="text" id="postal_code" name="postal_code" required>
+
+        <label for="phone">电话:</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <label for="location">位置 (可选):</label>
+        <input type="text" id="location" name="location">
+
+        <button type="submit">添加地址</button>
+    </form>
+
+    <hr>
+
+    <h2>搜索地址 (按城市ID)</h2>
+    <form method="GET" action="{{ url_for('search_by_city') }}">
+        <label for="search_city_id">城市ID:</label>
+        <input type="number" id="search_city_id" name="city_id" required>
+        <button type="submit">搜索</button>
+    </form>
+
+    <hr>
+
+    <h2>地址列表</h2>
+    <ul>
+        {% for address in addresses %}
+            <li>
+                地址ID: {{ address[0] }} | 地址: {{ address[1] }} | 地址2: {{ address[2] }} | 区: {{ address[3] }} | 城市ID: {{ address[4] }} | 邮政编码: {{ address[5] }} | 电话: {{ address[6] }} | 最后更新时间: {{ address[7] }}
+                <form method="POST" action="{{ url_for('delete_bp.delete_address', address_id=address[0]) }}" style="display:inline;">
+                    <button type="submit">删除</button>
+                </form>
+                <form method="POST" action="{{ url_for('update_bp.update_post', post_id=address[0]) }}" style="display:inline;">
+                    <input type="text" name="post_{{ address[0] }}_address" placeholder="新地址">
+                    <input type="text" name="post_{{ address[0] }}_address2" placeholder="新地址2">
+                    <input type="text" name="post_{{ address[0] }}_district" placeholder="新区">
+                    <input type="number" name="post_{{ address[0] }}_city_id" placeholder="新城市ID">
+                    <input type="text" name="post_{{ address[0] }}_postal_code" placeholder="新邮政编码">
+                    <input type="text" name="post_{{ address[0] }}_phone" placeholder="新电话">
+                    <button type="submit">更新</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
