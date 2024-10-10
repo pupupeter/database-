@@ -218,6 +218,6 @@ Only designd the city_id search fuction, if you want to modify other coulmn, rem
  *0930/1002  I had change html's style, so it would be different to the last one. 
 
 
-code:
+code:https://github.com/pupupeter/database-/blob/main/1007end.ipynb
 
 html:https://github.com/pupupeter/database-/blob/main/index4%20.html
