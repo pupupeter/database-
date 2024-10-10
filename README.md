@@ -134,6 +134,17 @@ code:https://github.com/pupupeter/database-/blob/main/delete%2Bread.ipynb
 
 # 0930/1002 make the html beautiful
 
+Use css's model to modify the html style 
+
+you could choose the style you are favorite with. 
+
+
+
+refer to https://github.com/marcelinechang/DatabaseSystem
+
+if you are not stisfied with the style, you may get to the website 
+
+https://www.free-css.com/free-css-templates
 
 # 1007 add  "edit" and "search" and  function 
 
