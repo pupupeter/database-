@@ -135,3 +135,89 @@ code:https://github.com/pupupeter/database-/blob/main/delete%2Bread.ipynb
 # 0930/1002 make the html beautiful
 
 
+# 1007 add  "edit" and "search" and  function 
+
+   1. """edit""
+```   
+   @update_bp.route('/update/<int:post_id>', methods=['POST'])
+def update_post(post_id):
+    # 获取所有字段的新值
+    new_address = request.form.get(f'post_{post_id}_address')
+    new_address2 = request.form.get(f'post_{post_id}_address2')
+    new_district = request.form.get(f'post_{post_id}_district')
+    new_city_id = request.form.get(f'post_{post_id}_city_id')
+    new_postal_code = request.form.get(f'post_{post_id}_postal_code')
+    new_phone = request.form.get(f'post_{post_id}_phone')
+
+    # 检查是否有输入资料，没有的话返回错误
+    if not new_address or not new_district or not new_city_id or not new_postal_code or not new_phone:
+        return "所有字段都是必需的", 400  # 返回 400 错误，告知缺少必填字段
+
+    # 连接到数据库并更新内容
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    update_query = """
+        UPDATE address 
+        SET address = %s, address2 = %s, district = %s, city_id = %s, postal_code = %s, phone = %s 
+        WHERE address_id = %s
+    """
+    
+    # 执行更新语句
+    cursor.execute(update_query, (new_address, new_address2, new_district, new_city_id, new_postal_code, new_phone, post_id))
+    conn.commit()  # 提交更改
+    
+    cursor.close()
+    conn.close()
+    
+    # 更新完成后，重定向到主页
+    return redirect(url_for('index'))
+
+
+   app.register_blueprint(update_bp)
+```
+This is a way to show how I run the "update" function, you could change the code with AI's assistance.
+
+The function shows that once i change the  value or name of every item and update it, it would change,too.
+
+Remember , you should use """app.register_blueprint(update_bp)""" in order to run properly.
+
+
+
+   2. """Search"""
+
+```
+   @app.route('/search', methods=['GET'])
+def search_by_city():
+    city_id = request.args.get('city_id')
+
+    if not city_id:
+        return "城市ID是必需的", 400  # 返回 400 错误，告知缺少城市 ID
+
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
+
+    search_query = """
+        SELECT address_id, address, address2, district, city_id, postal_code, phone, last_update
+        FROM address
+        WHERE city_id = %s
+    """
+    cursor.execute(search_query, (city_id,))
+    addresses = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return render_template('index4.html', addresses=addresses)
+ ```
+
+This is a way to show how I run the "search" function, you could change the code with AI's assistance.
+
+Only designd the city_id search fuction, if you want to modify other coulmn, remember to change the code """city_id """to what you want to represent.
+
+ *0930/1002  I had change html's style, so it would be different to the last one. 
+
+
+code:
+
+html:
