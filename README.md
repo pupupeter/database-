@@ -239,6 +239,10 @@ html:https://github.com/pupupeter/database-/blob/main/index4%20.html
 
 ***Remember ***
 
+
+HTML:https://github.com/pupupeter/database-/blob/main/template1.html
+CODE:
+
 I had established  new database and several tables, if you want to do the task,you should establish a new database. And set up new tables
 
 I set up new data randomly in python.You could just establish the data in mysql or python.
