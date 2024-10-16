@@ -234,3 +234,51 @@ Only designd the city_id search fuction, if you want to modify other coulmn, rem
 code:https://github.com/pupupeter/database-/blob/main/1007end.ipynb
 
 html:https://github.com/pupupeter/database-/blob/main/index4%20.html
+
+# 1014 final project data create+ inner join
+
+***Remember ***
+
+I had established  new database and several tables, if you want to do the task,you should establish a new database. And set up new tables
+
+I set up new data randomly in python.You could just establish the data in mysql or python.
+
+If you use python, it can be sucessfully updated in the mysql.Rest assured! 
+
+But in order to  play it for , i suggest that you should check again
+
+
+
+
+
+![image](https://github.com/user-attachments/assets/8427db2f-c4bc-43c5-ada1-c33c360a899e)
+this is code for inner join 
+
+![image](https://github.com/user-attachments/assets/78b18846-71f1-4358-a4cc-ea4c28013c50)
+It means that if you have several database which you want to find something in common, you have to make them together, and select what you want.
+
+
+--> in mysql, you need to set up more than 2 tables in you database
+
+e.g.![image](https://github.com/user-attachments/assets/09c1f15e-f7d8-497b-bd9a-63b557fd7597)
+
+
+so you could refer to my sample
+
+1. chatbot_interactions
+
+![image](https://github.com/user-attachments/assets/940f9e7b-cf12-46f9-959c-0d15125a933e)  --> ![image](https://github.com/user-attachments/assets/3321ad87-3c95-4556-a11b-9fc093648cb4)
+
+
+
+2.recommendations 
+
+![image](https://github.com/user-attachments/assets/f2a660ee-63e4-43f4-b799-ecd1c85063e8)-->  ![image](https://github.com/user-attachments/assets/80ee3721-27a7-40d5-ba66-4a4071c3f447)
+
+
+
+The same item is  user id. because of it  you could make them together. And than, if you do not under stand the meaning, you could just refer to my code 
+
+
+
+
