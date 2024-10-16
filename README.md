@@ -280,5 +280,7 @@ so you could refer to my sample
 The same item is  user id. because of it  you could make them together. And than, if you do not under stand the meaning, you could just refer to my code 
 
 
+ER diagram
 
+![MYSQLDIAGRAM](https://github.com/user-attachments/assets/d611c41b-c5b7-4e30-85f3-f9f4945e4cdd)
 
