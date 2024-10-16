@@ -245,7 +245,7 @@ I set up new data randomly in python.You could just establish the data in mysql 
 
 If you use python, it can be sucessfully updated in the mysql.Rest assured! 
 
-But in order to  play it for , i suggest that you should check again
+But in order to  play it for save , i suggest that you should check again
 
 
 
