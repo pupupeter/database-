@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用戶管理</title>
+    <style>
+        /* 字體樣式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1, h2 {
+            font-family: 'Verdana', sans-serif;
+            color: #333399;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        /* 表格樣式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #ffffff;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* 調整表格行距和字型大小 */
+        td {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* 表單樣式 */
+        input[type="text"], input[type="number"], input[type="email"] {
+            width: 100%;
+            padding: 10px; /* 增加 padding */
+            margin: 10px 0; /* 增加 margin，讓欄位之間有更多空間 */
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #333399;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6666ff;
+        }
+
+        /* 表單容器樣式 */
+        form {
+            display: grid; /* 使用 grid 來排列表單欄位 */
+            grid-template-columns: repeat(2, 1fr); /* 兩列佈局 */
+            gap: 20px; /* 欄位之間的間距 */
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>用戶管理</h1>
+        
+        <!-- 添加用户表单 -->
+        <h3>添加用戶</h3>
+        <form method="POST">
+            <div>
+                <label for="name">姓名</label>
+                <input type="text" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <button type="submit" name="add">添加用戶</button>
+        </form>
+
+        <!-- 用户列表 -->
+        <h3 class="mt-5">用戶列表</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>姓名</th>
+                    <th>Email</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in user_results %}
+                <tr>
+                    <td>{{ user.UserID }}</td>
+                    <td>{{ user.Name }}</td>
+                    <td>{{ user.Email }}</td>
+                    <td>
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="user_id" value="{{ user.UserID }}">
+                            <input type="text" name="name" value="{{ user.Name }}" required>
+                            <input type="email" name="email" value="{{ user.Email }}" required>
+                            <button type="submit" name="update">更新</button>
+                        </form>
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="user_id" value="{{ user.UserID }}">
+                            <button type="submit" name="delete">删除</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- 筛选表单 -->
+        <h3>按姓名、產品名稱、用戶ID 和 email 篩選用戶</h3>
+        <form method="GET" action="/">
+            <label for="name_filter">輸入姓名:</label>
+            <input type="text" name="name_filter" id="name_filter" placeholder="请输入姓名">
+            
+            <label for="product_filter" class="mt-3">輸入產品名稱:</label>
+            <input type="text" name="product_filter" id="product_filter" placeholder="请输入产品名称">
+            
+            <label for="user_id_filter" class="mt-3">輸入用戶ID:</label>
+            <input type="number" name="user_id_filter" id="user_id_filter" placeholder="请输入用戶ID">
+            
+            <label for="email_filter" class="mt-3">輸入 Email:</label>
+            <input type="email" name="email_filter" id="email_filter" placeholder="请输入 Email">
+
+            <button type="submit" class="btn btn-info mt-2">篩選</button>
+        </form>
+
+        <!-- INNER JOIN 结果展示 -->
+        <h3 class="mt-5">客戶查詢結果</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>姓名</th>
+                    <th>Email</th>
+                    <th>產品名稱</th>
+                    <th>推薦理由</th>
+                    <th>用戶查詢</th>
+                    <th>機器人回答</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in join_results %}
+                <tr>
+                    <td>{{ result.UserID }}</td>
+                    <td>{{ result.Name }}</td>
+                    <td>{{ result.Email }}</td>
+                    <td>{{ result.ProductName }}</td>
+                    <td>{{ result.RecommendationReason }}</td>
+                    <td>{{ result.UserQuery }}</td>
+                    <td>{{ result.BotResponse }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- 提示信息 -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-success" role="alert">
+                    {% for message in messages %}
+                        {{ message }}<br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
