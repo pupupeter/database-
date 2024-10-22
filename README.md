@@ -289,3 +289,9 @@ ER diagram
 
 ![MYSQLDIAGRAM](https://github.com/user-attachments/assets/d611c41b-c5b7-4e30-85f3-f9f4945e4cdd)
 
+
+# 1022 add email、user id search function for the inner join
+
+code:https://github.com/pupupeter/database-/blob/main/1022.ipynb
+
+html:https://github.com/pupupeter/database-/blob/main/template2.html
