@@ -291,7 +291,13 @@ ER diagram
 
 
 # 1022 add email、user id search function for the inner join
-
 code:https://github.com/pupupeter/database-/blob/main/1022.ipynb
 
 html:https://github.com/pupupeter/database-/blob/main/template2.html
+# 1023 add feedback table and recommendations table
+
+I had added the feedback table and recommendations table function to see user's ID and others, if you input the value that mysql database does not  exist. The execution would have problem, so you have to add a proper UserID in advance, like  "add user management" in html or from mysql itself.
+
+
+
+
