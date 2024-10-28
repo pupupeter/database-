@@ -321,6 +321,17 @@ I set up a function to suitablely add new data --> description and Profession
 
 And in order to make the website clear, i also adjust the page, making the adding data page could be a independent page.
 
+![image](https://github.com/user-attachments/assets/1d2a5323-5414-4c70-974a-5a64070681bb)
+
+![image](https://github.com/user-attachments/assets/64d58839-fd83-4e57-bf69-47bd4e27e0a8)
+
+so it means that you have to generate two different html to present the function.
+
+code:
+
+html:
+
+
 
 
 
