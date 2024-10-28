@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Log</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Startup Log</h1>
+
+    <h2>Add New Data</h2>
+    <form id="data-form">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>Existing Data</h2>
+    <ul id="data-list">
+        {% for item in data %}
+            <li>
+                <strong>Hostname:</strong> {{ item.hostname }} <br>
+                <strong>Start Time:</strong> {{ item.startTime }} <br>
+                <strong>Start Time (Local):</strong> {{ item.startTimeLocal }} <br>
+                <strong>Process ID:</strong> {{ item.pid }} <br>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        $(document).ready(function() {
+            $('#data-form').on('submit', function(event) {
+                event.preventDefault();  // Prevent the default form submission
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/add_data',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        // Add the new item to the list
+                        $('#data-list').append('<li>' + response.name + ': ' + response.description + '</li>');
+                        $('#data-form')[0].reset();  // Reset the form
+                    },
+                    error: function(error) {
+                        alert('Error adding data!');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
