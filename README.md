@@ -327,9 +327,11 @@ And in order to make the website clear, i also adjust the page, making the addin
 
 so it means that you have to generate two different html to present the function.
 
-code:
+code: https://github.com/pupupeter/database-/blob/main/NOSQLWITHOTHERPAGE.ipynb
 
-html:
+html: create.html    https://github.com/pupupeter/database-/blob/main/create.html
+
+123.html   https://github.com/pupupeter/database-/blob/main/123.html
 
 
 
