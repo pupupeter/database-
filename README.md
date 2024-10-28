@@ -308,7 +308,6 @@ The link for mongoDB download:
 
 https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.1-signed.msi
 
-
 1.![image](https://github.com/user-attachments/assets/ac262e03-8ede-441e-b353-783293358dc4)
 
 2.![image](https://github.com/user-attachments/assets/954e1023-575b-43f5-ac67-7347523ba4ba)
@@ -316,6 +315,13 @@ https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.1-signed.msi
 3.![image](https://github.com/user-attachments/assets/d6de747b-4f8a-4c17-be67-4ea1fc4d036f)
 
 I use jupyter notebook to show mongoDB, if you want to build a database for the complex and random data,mongoDB is a suitable application to be used.
+# 1028 MongoDB with other page
+
+I set up a function to suitablely add new data --> description and Profession
+
+And in order to make the website clear, i also adjust the page, making the adding data page could be a independent page.
+
+
 
 
 
