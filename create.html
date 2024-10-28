@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>新增創業日誌</title>
+</head>
+<body>
+    <h1>新增創業日誌條目</h1>
+
+    <!-- 新增資料的表單 -->
+    <form action="/add_data" method="POST">
+        <label for="name">名稱：</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="description">描述：</label>
+        <input type="text" id="description" name="description" required><br>
+
+        <label for="profession">職業：</label>
+        <input type="text" id="profession" name="profession" required><br>
+
+        <button type="submit">提交</button>
+    </form>
+
+    <!-- 回首頁的連結 -->
+    <br>
+    <a href="{{ url_for('index') }}">回到列表</a>
+</body>
+</html>

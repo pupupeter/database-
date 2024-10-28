@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>創業日誌 - 資料列表</title>
+</head>
+<body>
+    <h1>創業日誌列表</h1>
+
+    <!-- 連結到新增資料頁面 -->
+    <a href="{{ url_for('create') }}">新增條目</a>
+
+    <hr>
+
+    <ul>
+        {% for log in data %}
+            <li>
+                <strong>{{ log.name }}</strong> - {{ log.description }}<br>
+                <em>職業：{{ log.profession }}</em><br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
