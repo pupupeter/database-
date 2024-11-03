@@ -8,6 +8,8 @@ ASSIGNMENT 2.https://www.youtube.com/watch?v=TIaSmoeB2qU
 
 ASSIGNMENT 2 for  insufficient functions   https://youtu.be/GWJeo4uNd18
 
+ASSIGNMENT 3 https://youtu.be/HzY07OpwZtg?si=eB495m7f2BazqnyH
+
 
 
 
