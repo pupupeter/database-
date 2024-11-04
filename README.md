@@ -382,5 +382,38 @@ def add_data():
 ```
 
 
+![image](https://github.com/user-attachments/assets/fbb75d5f-f5c2-4463-b58d-d829cdc67eec)
+
+
+you could find that there are different column stored, and in mangoDB you can also see the data sucessfully stored
+
+![image](https://github.com/user-attachments/assets/3d690a55-e896-4a6d-85ec-742fc6cd76be)
+
+
+Once you think  information is too much , you can just click Hide 
+
+![image](https://github.com/user-attachments/assets/fcd4bf28-4820-4445-96fd-db0c830dd91a)  -->hide 
+
+
+
+If you want to establish a new column , click  adding column
+
+![擷取1](https://github.com/user-attachments/assets/ab5a3d98-d310-4113-ac32-255fef507142)
+
+
+And than you can input something here 
+
+![image](https://github.com/user-attachments/assets/90360fee-6f87-4d58-be28-643e7970f6ea)
+
+
+
+
+
+html: search1.html https://github.com/pupupeter/database-/blob/main/search1.html
+
+      123-2.html   https://github.com/pupupeter/database-/blob/main/123-2.html
+
+code: https://github.com/pupupeter/database-/blob/main/1104new.ipynb
+
 
 
