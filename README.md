@@ -410,8 +410,7 @@ And than you can input something here
 
 
 html: search1.html https://github.com/pupupeter/database-/blob/main/search1.html
-
-      123-2.html   https://github.com/pupupeter/database-/blob/main/123-2.html
+123-2.html   https://github.com/pupupeter/database-/blob/main/123-2.html
 
 code: https://github.com/pupupeter/database-/blob/main/1104new.ipynb
 
