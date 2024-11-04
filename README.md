@@ -337,9 +337,49 @@ html: create.html    https://github.com/pupupeter/database-/blob/main/create.htm
 
 
 
+# 1104 Use db.collection.find and db.collection.aggregate. (Read) and add a new column to input new item
+
+I set up a  function that make UI clear.
+
+What's more, I also create a function that  can add  a new column and content which i could input something by myself   
+
+```
+def add_data():
+    if request.method == 'POST':
+        # Get basic data from the form
+        name = request.form.get('name')
+        description = request.form.get('description')
+        profession = request.form.get('profession')
+
+        # Basic fields
+        new_doc = {
+            'name': name,
+            'description': description,
+            'profession': profession
+        }
+
+        # Retrieve the names and attributes of dynamically added fields
+        field_names = request.form.getlist('fieldName[]')
+        field_values = request.form.getlist('fieldValue[]')
+
+        # Add dynamic fields to the document
+        for i in range(len(field_names)):
+            field_name = field_names[i]
+            field_value = field_values[i]
+            new_doc[field_name] = field_value
+
+        # Insert the new data into the MongoDB collection
+        collection.insert_one(new_doc)
+
+        # Redirect to the homepage to display the newly added data after submission
+        return redirect(url_for('index'))
+
+    # Display the form page for adding new data on GET requests
+    return render_template('your.html')
 
 
 
+```
 
 
 
