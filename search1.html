@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>新增資料</title>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        // 新增欄位的函數
+        function addField() {
+            const container = document.getElementById('dynamic-fields');
+            const newField = document.createElement('div');
+            newField.className = 'form-group';
+            newField.innerHTML = `
+                <label for="fieldName">欄位名稱：</label>
+                <input type="text" name="fieldName[]" placeholder="欄位名稱" required>
+                <label for="fieldValue">敘述：</label>
+                <input type="text" name="fieldValue[]" placeholder="敘述" required>
+                <button type="button" onclick="removeField(this)">刪除</button>
+            `;
+            container.appendChild(newField);
+        }
+
+        // 刪除欄位的函數
+        function removeField(button) {
+            const fieldGroup = button.parentNode;
+            fieldGroup.parentNode.removeChild(fieldGroup);
+        }
+    </script>
+</head>
+<body>
+    <h1>新增資料</h1>
+    
+    <!-- 新增資料表單 -->
+    <form method="post" action="{{ url_for('add_data') }}">
+        <div class="form-group">
+            <label for="name">名稱：</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">描述：</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="profession">職業：</label>
+            <input type="text" id="profession" name="profession" required>
+        </div>
+
+        <!-- 動態欄位容器 -->
+        <div id="dynamic-fields"></div>
+
+        <!-- 新增欄位按鈕 -->
+        <button type="button" onclick="addField()">新增欄位</button>
+
+        <button type="submit">提交</button>
+    </form>
+    
+    <!-- 返回首頁的連結 -->
+    <a href="{{ url_for('index') }}">返回首頁</a>
+</body>
+</html>
+
