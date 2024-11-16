@@ -427,3 +427,19 @@ you can just modify the user's information, after you finish, click update. you 
 ![image](https://github.com/user-attachments/assets/7fe7f552-5a49-446d-8f72-365254313ece)
 
 
+once you think the data that is not important, you could just click 刪除. 
+![image](https://github.com/user-attachments/assets/a1f0ab67-e3fa-46ef-8583-93c987f460e9)
+
+![image](https://github.com/user-attachments/assets/33a94597-acea-4005-b3de-cb0ad5acfbc5)
+
+done~
+
+
+html: update12:https://github.com/pupupeter/database-/blob/main/update12.html
+
+      index12:https://github.com/pupupeter/database-/blob/main/index12.html
+
+      create11:https://github.com/pupupeter/database-/blob/main/create11.html
+
+
+code:https://github.com/pupupeter/database-/blob/main/1111%E6%88%90%E5%8A%9F%E7%9A%84.ipynb
