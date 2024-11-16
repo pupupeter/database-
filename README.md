@@ -414,5 +414,16 @@ html: search1.html https://github.com/pupupeter/database-/blob/main/search1.html
 
 code: https://github.com/pupupeter/database-/blob/main/1104new.ipynb
 
+# 1111 nosql with edit and delete
+
+Add  edit and delete function to properly manage user's information. 
+
+e.g. ![image](https://github.com/user-attachments/assets/4f18ef05-3074-4ee1-b0de-b2368e926b25)
+ you could find 編輯/刪除， choose 編輯
+![image](https://github.com/user-attachments/assets/88f0c4ec-042b-485e-ae51-f1bb231b05bd)
+
+you can just modify the user's information, after you finish, click update. you can find the new data
+
+![image](https://github.com/user-attachments/assets/7fe7f552-5a49-446d-8f72-365254313ece)
 
 
