@@ -443,3 +443,18 @@ create11:https://github.com/pupupeter/database-/blob/main/create11.html
 
 
 code:https://github.com/pupupeter/database-/blob/main/1111%E6%88%90%E5%8A%9F%E7%9A%84.ipynb
+
+
+# 1125/1202 project login、summary
+
+1. i add a login interface to make sure if the staff could suitably use the function
+  ![image](https://github.com/user-attachments/assets/6e42dda4-7fd5-4eaa-8c88-132a36d92fe6)
+ 
+2. using Retrieval-augmented generation(RAG) to query someone's interest so that staff could understand what customers want
+   ![image](https://github.com/user-attachments/assets/4ce4caf2-0e71-466f-a406-d7d2c1b7729a)
+
+3. Translate from Chinese to English
+
+
+
+
