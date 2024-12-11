@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Recommendation Summary</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5rem;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        #summary {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eaf7f3;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        #error {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .card {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Insurance Recommendation Summary</h1>
+        
+        <button id="generateSummaryBtn" class="btn">Generate Insurance Recommendation Summary</button>
+        
+        <div id="summary" class="card" style="display:none;"></div>
+        <div id="error" style="display:none;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#generateSummaryBtn').click(function(){
+                // Clear previous summary and error messages
+                $('#summary').empty().hide();
+                $('#error').empty().hide();
+
+                $.get("/generate_summary", function(data){
+                    if (data.summary) {
+                        $('#summary').text(data.summary).show();
+                    } else if (data.error) {
+                        $('#error').text(data.error).show();
+                    }
+                }).fail(function(){
+                    $('#error').text("The request failed, please try again later.").show();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

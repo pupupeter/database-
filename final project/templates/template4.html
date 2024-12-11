@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User and referral management</title>
+    <style>
+        /* 字体样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Verdana', sans-serif;
+            color: #333399;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #ffffff;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* 表单样式 */
+        input[type="text"], input[type="number"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #333399;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6666ff;
+        }
+
+        /* 表单容器 */
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* 消息样式 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>User and referral management</h1>
+        <div style="margin: 20px 0;">
+            <a href="/summary">Recommended summary page</a>
+            </a>
+        </div>
+        <!-- 用户管理操作表单 -->
+        <h3>Add user</h3>
+        <form method="POST">
+            <div>
+                <label for="name">name</label>
+                <input type="text" name="name" required>
+            </div>
+            <div>
+                <label for="email">email</label>
+                <input type="email" name="email" required>
+            </div>
+            <button type="submit" name="add">add USER</button>
+        </form>
+
+        <!-- 用户列表 -->
+        <h3>User list</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>operate</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in user_results %}
+                <tr>
+                    <td>{{ user.UserID }}</td>
+                    <td>{{ user.Name }}</td>
+                    <td>{{ user.Email }}</td>
+                    <td>
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="user_id" value="{{ user.UserID }}">
+                            <input type="text" name="name" value="{{ user.Name }}" required>
+                            <input type="email" name="email" value="{{ user.Email }}" required>
+                            <button type="submit" name="update">update</button>
+                            <button type="submit" name="delete">delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- 推荐项操作表单 -->
+        <h3>Add recommended items</h3>
+        <form method="POST">
+            <div>
+                <label for="rec_user_id">User ID</label>
+                <input type="number" name="rec_user_id" required>
+            </div>
+            <div>
+                <label for="product_id">product_id</label>
+                <input type="number" name="product_id" required>
+            </div>
+            <div>
+                <label for="recommendation_reason">recommendation_reason</label>
+                <textarea name="recommendation_reason" rows="4" required></textarea>
+            </div>
+            <button type="submit" name="add_rec">Add recommended items</button>
+        </form>
+
+        <!-- 推荐项列表 -->
+        <h3>User list</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>RecommendationID</th>
+                    <th>User ID</th>
+                    <th>product_id</th>
+                    <th>RecommendationReason</th>
+                    <th>operate</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rec in rec_results %}
+                <tr>
+                    <td>{{ rec.RecommendationID }}</td>
+                    <td>{{ rec.UserID }}</td>
+                    <td>{{ rec.ProductID }}</td>
+                    <td>{{ rec.RecommendationReason }}</td>
+                    <td>
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="rec_id" value="{{ rec.RecommendationID }}">
+                            <input type="number" name="rec_user_id" value="{{ rec.UserID }}" required>
+                            <input type="number" name="product_id" value="{{ rec.ProductID }}" required>
+                            <textarea name="recommendation_reason" rows="2">{{ rec.RecommendationReason }}</textarea>
+                            <button type="submit" name="update_rec">update</button>
+                            <button type="submit" name="delete_rec">delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- 反馈项操作表单 -->
+        <h3>Add feedback items</h3>
+        <form method="POST">
+            <div>
+                <label for="FeedbackID">USER ID</label>
+                <input type="number" name="FeedbackID" required>
+            </div>
+            <div>
+                <label for="Comments">feedback</label>
+                <textarea name="Comments" rows="4" required></textarea>
+            </div>
+            <button type="submit" name="add_feedback">add_feedback</button>
+        </form>
+
+        <!-- 反馈项列表 -->
+        <h3>Feedback item list</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>FeedbackID</th>
+                    <th>UserID</th>
+                    <th>Comments</th>
+                    <th>operate</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedback in feedback_results %}
+                <tr>
+                    <td>{{ feedback.FeedbackID }}</td>
+                    <td>{{ feedback.UserID }}</td>
+                    <td>{{ feedback.Comments }}</td>
+                    <td>
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="FeedbackID" value="{{ feedback.FeedbackID }}">
+                            <input type="hidden" name="UserID" value="{{ feedback.UserID }}">
+                            <textarea name="Comments" rows="2">{{ feedback.Comments }}</textarea>
+                            <button type="submit" name="update_feedback">update</button>
+                            <button type="submit" name="delete_feedback">delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- INNER JOIN 查询结果列表 -->
+        <h3>INNER JOIN Query results</h3>
+        <form method="GET">
+            <div>
+                <label for="name_filter">name_filter</label>
+                <input type="text" name="name_filter" placeholder="INPUT name">
+            </div>
+            <div>
+                <label for="product_filter">product_filter</label>
+                <input type="text" name="product_filter" placeholder="INPUT productID">
+            </div>
+            <div>
+                <label for="user_id_filter">user_id_filter</label>
+                <input type="text" name="user_id_filter" placeholder="INPUT user_id">
+            </div>
+            <div>
+                <label for="email_filter">email_filter</label>
+                <input type="text" name="email_filter" placeholder="INPUT email">
+            </div>
+            <button type="submit">Filter query</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>ProductName</th>
+                    <th>Recommendation ID</th>
+                    <th>RecommendationReason</th>
+                    <th>UserQuery</th>
+                    <th>BotResponse</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rec in join_results %}
+                <tr>
+                    <td>{{ rec.UserID }}</td>
+                    <td>{{ rec.Name }}</td>
+                    <td>{{ rec.Email }}</td>
+                    <td>{{ rec.ProductName }}</td>
+                    <td>{{ rec.RecommendationID }}</td>
+                    <td>{{ rec.RecommendationReason }}</td>
+                    <td>{{ rec.UserQuery }}</td>
+                    <td>{{ rec.BotResponse }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- 显示操作结果消息 -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
+
+
+
